@@ -1,0 +1,124 @@
+:root {
+  /*Mobile screen fonts variables*/
+  --base-size-min: 100%; /*16px*/
+  --type-scale-min: 1.2;
+  --h-line-height-min: 1.2;
+  --p-line-height-min: 1.3;
+  --p-max-width-min: 38rem;
+
+  /*Desktop screen fonts variables*/
+  --base-size-max: 112.5%; /*18px*/
+  --type-scale-max: 1.5;
+  --h-line-height-max: 1.4;
+  --p-line-height-max: 1.75;
+  --p-max-width-max: 42rem;
+
+  /*General font variables*/
+  --base-size: var(--base-size-min);
+  --type-scale: var(--type-scale-min);
+  --h-line-height: var(--h-line-height-min);
+  --p-line-height: var(--p-line-height-min);
+  --p-max-width: var(--p-max-width-min);
+  --h-font-weight: 700;
+  --p-font-weight: 400;
+  --h-font-family: "Roboto", sans-serif;
+  --p-font-family: "Roboto", sans-serif;
+  --h-margin: 3rem 0 1.38rem;
+  --p-margin: auto auto 1rem auto;
+  --h1-size: calc(var(--h2-size) * var(--type-scale));
+  --h2-size: calc(var(--h3-size) * var(--type-scale));
+  --h3-size: calc(var(--h4-size) * var(--type-scale));
+  --h4-size: calc(var(--h5-size) * var(--type-scale));
+  --h5-size: calc(var(--p-size) * var(--type-scale));
+  --p-size: 1rem;
+  --small-size: calc(var(--p-size) / var(--type-scale));
+
+  @media (min-width: 24.15em) {
+    --base-size: calc(
+      var(--base-size-min) + (var(--base-size-max) - var(--base-size-min)) / 4
+    );
+    --type-scale: calc(
+      var(--type-scale-min) + (var(--type-scale-max) - var(--type-scale-min)) /
+        4
+    );
+    --h-line-height: calc(
+      (var(--h-line-height-min) + var(--h-line-height-max)) / 2
+    );
+    --p-line-height: calc(
+      (var(--p-line-height-min) + var(--p-line-height-max)) / 2
+    );
+  }
+
+  @media (min-width: 60.25em) {
+    --base-size: calc(
+      var(--base-size-min) + (var(--base-size-max) - var(--base-size-min)) / 2
+    );
+    --type-scale: calc(
+      var(--type-scale-min) + (var(--type-scale-max) - var(--type-scale-min)) /
+        2
+    );
+    --h-line-height: var(--h-line-height-max);
+    --p-line-height: var(--p-line-height-max);
+  }
+  @media (min-width: 75em) {
+    --base-size: var(--base-size-max);
+    --type-scale: var(--type-scale-max);
+    --p-max-width: var(--p-max-width-max);
+  }
+}
+
+html {
+  font-size: var(--base-size);
+}
+body {
+  font-family: var(--p-font-family);
+  font-weight: var(--p-font-weight);
+  line-height: var(--p-line-height);
+  hyphens: auto;
+}
+
+p {
+  margin: var(--p-margin);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: var(--h-margin);
+  font-family: var(--h-font-family);
+  font-weight: var(--h-font-weight);
+  line-height: var(--h-line-height);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: var(--h1-size);
+}
+
+h2 {
+  font-size: var(--h2-size);
+}
+
+h3 {
+  font-size: var(--h3-size);
+}
+
+h4 {
+  font-size: var(--h4-size);
+}
+
+h5 {
+  font-size: var(--h5-size);
+}
+
+small,
+code,
+.text_small {
+  font-size: var(--small-size);
+}
+
+code {
+  color: var(--primary-color);
+}

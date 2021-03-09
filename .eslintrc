@@ -1,0 +1,70 @@
+{
+  "extends": ["eslint-config-airbnb", "prettier"],
+  "plugins": ["react", "import", "prettier"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/no-multi-comp": "off",
+    "object-curly-newline": "off",
+    "react/jsx-first-prop-new-line": ["warn", "multiline"],
+    "react/prefer-stateless-function": "off",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-filename-extension": "off",
+    "react/self-closing-comp": "off",
+    "react/jsx-no-target-blank": "warn",
+    "react/no-find-dom-node": "warn",
+    "react/forbid-prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-boolean-value": "off",
+    "import/default": "off",
+    "import/extensions": ["off"],
+    "import/no-duplicates": "off",
+    "import/named": "off",
+    "import/namespace": "off",
+    "import/no-unresolved": "off",
+    "import/no-named-as-default": "off",
+    "import/imports-first": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/newline-after-import": "off",
+    "comma-dangle": "off",
+    "consistent-return": "off",
+    "no-param-reassign": "off",
+    "prefer-template": "warn",
+    "global-require": "off",
+    "no-case-declarations": "off",
+    "no-underscore-dangle": "off",
+    "arrow-parens": "off",
+    "class-methods-use-this": "off",
+    "no-bitwise": "off",
+    "no-plusplus": "off",
+    "no-console": "off",
+    "no-alert": "off",
+    "no-else-return": "off",
+    "no-undef": "off",
+    "no-nested-ternary": "off",
+    "func-names": "off",
+    "no-shadow": "off",
+    "no-use-before-define": "off",
+    "react/prop-types": "off",
+    "no-restricted-globals": "off",
+    "max-len": ["error", 280],
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/label-has-for": "off"
+  },
+  "settings": {
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "src"]
+    }
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "globals": {}
+}
