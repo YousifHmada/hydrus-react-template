@@ -1,0 +1,8 @@
+@mixin dark_theme() {
+    html[dark="true"] & {
+        @content;
+    }
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}

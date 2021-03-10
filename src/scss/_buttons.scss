@@ -58,10 +58,12 @@ button {
   }
   &.link {
     --color: var(--primary-color);
-    font-weight: $h_font_weight;
     color: var(--color);
     background: none;
     border: none;
     text-decoration: underline;
+  }
+  @include dark_theme() {
+    color: $black;
   }
 }

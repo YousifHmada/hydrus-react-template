@@ -7,6 +7,9 @@
   box-shadow: $box-shadow;
   border-radius: $border_radius;
   padding: $padding_lg;
+  @include dark_theme() {
+    background-color: $gray_color_800;
+  }
 }
 
 @media (max-width: $bp_sm) {
