@@ -10,44 +10,44 @@
     align-items: center;
   }
   &:first-child {
-    margin-top: $margin_top;
+    margin-top: $gap;
   }
-  margin-bottom: $margin_bottom;
+  margin-bottom: $gap;
   button {
-    margin: $margin_sm;
+    margin: $s_gaps;
   }
 }
 
 #inputs {
-  margin-top: $margin_lg_top;
-  margin-bottom: $margin_lg_bottom;
+  margin-top: $gap;
+  margin-bottom: $gap;
   input {
     display: block;
-    margin-top: $margin_lg_top;
+    margin-top: $gap;
   }
   a {
     display: block;
-    margin-top: $margin_lg_top;
+    margin-top: $gap;
   }
 }
 
 #containers {
-  margin-top: $margin_lg_top;
+  margin-top: $gap;
   & > * {
-    padding: $padding;
-    margin-top: $margin_top;
+    padding: $gaps;
+    margin-top: $gap;
     box-shadow: $box-shadow;
-    border: $border;
+    border: $gap solid transparent;
     border-color: $white;
     border-radius: $border_radius;
     & > p {
       margin: 0;
     }
     &:first-child {
-      margin-top: $margin_top;
+      margin-top: $gap;
     }
-    margin-bottom: $margin_bottom;
-    @include dark_theme() {
+    margin-bottom: $gap;
+    @include dark_mode() {
       border-color: transparent;
       background-color: $gray_color_800;
     }

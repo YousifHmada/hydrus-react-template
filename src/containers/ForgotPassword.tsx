@@ -2,25 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SigningCard from "../components/SiginingCard";
 
-function Home() {
+function ForgotPassword() {
   return (
     <SigningCard>
-      <p className="m-t-3 h4-size">Sign in</p>
+      <p className="m-t-3 h4-size">Forgot password</p>
       <form>
         <input
           className="m-t-1 m-b-2"
           type="text"
           placeholder="Email or Phone"
         />
-        <input className="m-b-2" type="password" placeholder="Password" />
         <div>
           <div>
             <div className="m-b-2">
-              <Link className="primary" to="/forgot-password">
-                Forgot Password?
-              </Link>
-            </div>
-            <div>
               <Link className="primary" to="/create-account">
                 Create an account
               </Link>
@@ -28,7 +22,7 @@ function Home() {
           </div>
           <div>
             <button type="submit" className="primary">
-              Sign in
+              Send
             </button>
           </div>
         </div>
@@ -37,4 +31,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default ForgotPassword;

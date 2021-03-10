@@ -27,12 +27,12 @@ $success_color_100: #e0f9e4;
 $success_color_200: #c1f3ca;
 $success_color_300: #a2edaf;
 $success_color_400: #83e795;
-$success_color: #64E17A;
+$success_color: #64e17a;
 $success_color_600: #5acb6e;
 $success_color_700: #50b462;
 $success_color_800: #32713d;
 $success_color_900: #142d18;
-$danger_color_shadow:rgba(232, 144, 174, 0.5);
+$danger_color_shadow: rgba(232, 144, 174, 0.5);
 $danger_color_50: #fdf4f7;
 $danger_color_100: #fae9ef;
 $danger_color_200: #f6d3df;
@@ -82,7 +82,7 @@ $f_bp_lg: 60.25em;
 $f_bp_xl: 75em;
 
 /*Mobile screen fonts variables*/
-$base_size_min: 100%; /*16px*/
+$base_size_min: 80%; /*16px*/
 $type_scale_min: 1.2;
 $h_line_height_min: 1.2;
 $p_line_height_min: 1.3;
@@ -106,43 +106,18 @@ $h_letter_spacing: -1px;
 $p_letter_spacing: 0px;
 
 /*Paddings, margins, borders & borderbox*/
-$padding_lg_top: 0.5rem;
-$padding_lg_right: 1rem;
-$padding_lg_left: 0.5rem;
-$padding_lg_bottom: 1rem;
-$padding_lg: $padding_lg_top $padding_lg_right $padding_lg_left
-  $padding_lg_bottom;
-$padding_top: 0.375rem;
-$padding_right: 0.75rem;
-$padding_left: 0.375rem;
-$padding_bottom: 0.75rem;
-$padding: $padding_top $padding_right $padding_left $padding_bottom;
-$padding_sm_top: 0.25rem;
-$padding_sm_right: 0.5rem;
-$padding_sm_left: 0.25rem;
-$padding_sm_bottom: 0.5rem;
-$padding_sm: $padding_sm_top $padding_sm_right $padding_sm_left
-  $padding_sm_bottom;
-$margin_lg_top: 0.5rem;
-$margin_lg_right: 1rem;
-$margin_lg_left: 0.5rem;
-$margin_lg_bottom: 1rem;
-$margin_lg: $margin_lg_top $margin_lg_right $margin_lg_left
-  $margin_lg_bottom;
-$margin_top: 0.375rem;
-$margin_right: 0.75rem;
-$margin_left: 0.375rem;
-$margin_bottom: 0.75rem;
-$margin: $margin_top $margin_right $margin_left $margin_bottom;
-$margin_sm_top: 0.25rem;
-$margin_sm_right: 0.5rem;
-$margin_sm_left: 0.25rem;
-$margin_sm_bottom: 0.5rem;
-$margin_sm: $margin_sm_top $margin_sm_right $margin_sm_left
-  $margin_sm_bottom;
-$border_lg: 3px solid transparent;
-$border: 1px solid transparent;
-$border_sm: 0.5px solid transparent;
+$gap: 0.625rem;
+$gaps: $gap;
+$s2_gap: #{$gap / 4};
+$s_gap: #{$gap / 2};
+$d_gap: #{$gap * 2};
+$d2_gap: #{$gap * 4};
+$s_gaps: $s_gap;
+$d_gaps: $d_gap;
+$s_v_gaps: $s_gap $gap;
+$s_h_gaps: $gap $s_gap;
+$d_v_gaps: $d_gap $gap;
+$d_h_gaps: $gap $d_gap;
 $border_radius_lg: 12px;
 $border_radius: 12px;
 $border_radius_sm: 12px;

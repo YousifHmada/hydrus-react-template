@@ -1,0 +1,13 @@
+@import "./scss/variables";
+
+#root {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.App {
+    flex: 1 1 100%;
+}

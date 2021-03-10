@@ -1,8 +1,10 @@
-@mixin dark_theme() {
-    html[dark="true"] & {
-        @content;
+@mixin dark_mode() {
+  html[dark="true"] & {
+    @content;
+  }
+  @media (prefers-color-scheme: dark) {
+    html:not([dark="false"]) & {
+      @content;
     }
-    @media (prefers-color-scheme: dark) {
-        @content;
-    }
+  }
 }

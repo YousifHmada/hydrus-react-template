@@ -1,5 +1,9 @@
 import { RootState } from "..";
 
+export interface IReactParentPropTypes {
+  children?: React.ReactNode;
+}
+
 export enum RequestStatus {
   IDLE = "idle",
   LOADING = "loading",

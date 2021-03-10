@@ -1,0 +1,17 @@
+@import "../scss/variables";
+
+#footer {
+  display: flex;
+  & > :nth-child(n + 2) {
+    margin-left: $d_gap;
+  }
+  @media (max-width: $bp_sm) {
+    & > :nth-child(n + 2),
+    & span > * {
+      margin-left: $s_gap;
+    }
+  }
+  select {
+    margin-top: -5px;
+  }
+}

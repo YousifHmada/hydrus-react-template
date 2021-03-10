@@ -2,17 +2,19 @@
 @import "./themes";
 
 :root {
-    color-scheme: light dark; /* both supported */
+  color-scheme: light dark; /* both supported */
+  --gap: #{$gap};
 }
 
 body {
+  margin: 0;
   background: $white;
   font-family: $p_font_family;
   font-weight: $p_font_weight;
   line-height: var(--p-line-height);
   hyphens: auto;
   color: $black;
-  @include dark_theme() {
+  @include dark_mode() {
     color: $gray-color-100;
     background-color: $gray_color_900;
   }
@@ -25,12 +27,13 @@ body {
 a {
   font-weight: $h_font_weight;
   text-decoration: none;
-  --color-600: #{$primary_color_600};
-  color: var(--color-600);
   outline: none;
+  color: var(--color);
   &:focus {
-    border: $border;
+    border: $s2_gap solid;
     border-color: var(--color-600);
-    text-decoration: underline;
+    @include dark_mode() {
+      border-color: $primary_color_600;
+    }
   }
 }

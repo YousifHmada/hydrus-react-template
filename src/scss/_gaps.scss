@@ -1,0 +1,28 @@
+@import './variables';
+
+@for $i from -5 to 5 {
+  .m-t-#{$i} {
+    margin-top: $gap * $i;
+  }
+  .m-r-#{$i} {
+    margin-right: $gap * $i;
+  }
+  .m-b-#{$i} {
+    margin-bottom: $gap * $i;
+  }
+  .m-l-#{$i} {
+    margin-left: $gap * $i;
+  }
+  .p-t-#{$i} {
+    padding-top: $gap * $i;
+  }
+  .p-r-#{$i} {
+    padding-right: $gap * $i;
+  }
+  .p-b-#{$i} {
+    padding-bottom: $gap * $i;
+  }
+  .p-l-#{$i} {
+    padding-left: $gap * $i;
+  }
+}

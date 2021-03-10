@@ -1,0 +1,25 @@
+@import "../scss/variables";
+
+.signing-card {
+  display: flex;
+  flex-flow: row wrap;
+  > * {
+    flex-basis: 100%;
+  }
+  img {
+    width: 100px;
+  }
+  input {
+    width: 100%;
+    display: block;
+  }
+  form > div {
+    display: flex;
+    & > * {
+      flex: 1 1 50%;
+    }
+    button {
+      float: right;
+    }
+  }
+}

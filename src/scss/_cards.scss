@@ -2,19 +2,25 @@
 
 .card {
   margin: auto;
-  max-width: $bp_sm;
-  border: $border;
+  width: $bp_sm;
+  border: $gap solid transparent;
   box-shadow: $box-shadow;
   border-radius: $border_radius;
-  padding: $padding_lg;
-  @include dark_theme() {
+  padding: $d_v_gaps;
+  @include dark_mode() {
     background-color: $gray_color_800;
   }
-}
-
-@media (max-width: $bp_sm) {
-  .card {
-      max-width: none;
-      padding: $padding_sm;
+  &.transparent {
+    background: none;
+    border: none;
+    box-shadow: none;
+    @include dark_mode() {
+      background: none;
+    }
+  }
+  @media (max-width: $bp_sm) {
+    & {
+      width: 100%;
+    }
   }
 }

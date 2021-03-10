@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SigningCard from "../components/SiginingCard";
 
-function Home() {
+function CreateAccount() {
   return (
     <SigningCard>
-      <p className="m-t-3 h4-size">Sign in</p>
+      <p className="m-t-3 h4-size">Create your account</p>
       <form>
         <input
           className="m-t-1 m-b-2"
@@ -13,22 +13,22 @@ function Home() {
           placeholder="Email or Phone"
         />
         <input className="m-b-2" type="password" placeholder="Password" />
+        <input
+          className="m-b-2"
+          type="password"
+          placeholder="Confirm Password"
+        />
         <div>
-          <div>
-            <div className="m-b-2">
-              <Link className="primary" to="/forgot-password">
-                Forgot Password?
-              </Link>
-            </div>
+          <div className="m-b-2">
             <div>
-              <Link className="primary" to="/create-account">
-                Create an account
+              <Link className="primary" to="/">
+                Have an account?
               </Link>
             </div>
           </div>
           <div>
             <button type="submit" className="primary">
-              Sign in
+              Create account
             </button>
           </div>
         </div>
@@ -37,4 +37,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default CreateAccount;

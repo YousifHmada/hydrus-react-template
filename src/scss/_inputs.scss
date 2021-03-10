@@ -45,8 +45,8 @@ input {
   -webkit-rtl-ordering: logical;
   cursor: text;
   margin: 0;
-  padding: $padding_lg_top $padding_sm_right;
-  border: $border_lg;
+  padding: $gaps;
+  border: $s2_gap solid transparent;
   border-radius: $border_radius;
   font-size: var(--p-size);
   line-height: var(--h-size);
@@ -84,7 +84,7 @@ input {
       );
     }
   }
-  @include dark_theme() {
+  @include dark_mode() {
     border-color: transparent;
     background-color: $gray_color_700;
     color: $gray_color;
@@ -102,5 +102,49 @@ input {
   }
   &.sm {
     font-size: var(--small-size);
+  }
+}
+
+select {
+  writing-mode: horizontal-tb !important;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: pointer;
+  margin: 0;
+  border: none;
+  font-size: var(--p-size);
+  line-height: var(--h-size);
+  outline: none;
+  color: $gray_color_700;
+  border-color: $gray_color_300;
+  background-color: $white;
+  text-decoration: underline;
+  -moz-appearance: none;
+  @include dark_mode() {
+    border-color: transparent;
+    background-color: transparent;
+    color: $gray_color;
+  }
+  :after {
+    content: "v";
+  }
+  &:focus {
+    border: $s2_gap solid;
+    border-color: var(--color-600);
+    background-color: none;
+    border-radius: 0;
+    box-shadow: none;
+    @include dark_mode() {
+      border-color: $gray_color_700;
+    }
   }
 }
