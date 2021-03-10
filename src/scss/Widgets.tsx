@@ -185,6 +185,8 @@ function Layout() {
           placeholder="Email or Phone"
           required
         />
+        <a href="https://www.google.com/">Forgot Password?</a>
+        <a href="https://www.google.com/">Create an account</a>
       </div>
 
       <div id="containers">

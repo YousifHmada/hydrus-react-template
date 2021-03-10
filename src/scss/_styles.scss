@@ -12,3 +12,16 @@ body {
 * {
   box-sizing: border-box;
 }
+
+a {
+  font-weight: $h_font_weight;
+  text-decoration: none;
+  --color-600: #{$primary_color_600};
+  color: var(--color-600);
+  outline: none;
+  &:focus {
+    border: $border;
+    border-color: var(--color-600);
+    text-decoration: underline;
+  }
+}
