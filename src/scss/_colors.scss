@@ -30,6 +30,7 @@
 }
 
 .secondary {
+  --text-color: #{$black};
   --color-shadow: #{$secondary_color_shadow};
   --color-50: #{$secondary_color_50};
   --color-100: #{$secondary_color_100};
@@ -72,6 +73,7 @@
 }
 
 .warning {
+  --text-color: #{$black};
   --color-shadow: #{$warning_color_shadow};
   --color-50: #{$warning_color_50};
   --color-100: #{$warning_color_100};

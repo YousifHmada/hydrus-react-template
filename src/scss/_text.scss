@@ -1,5 +1,5 @@
 @import "./variables";
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
 
 :root {
   /*General font variables*/
@@ -55,6 +55,7 @@ body {
   font-family: $p_font_family;
   font-weight: $p_font_weight;
   line-height: var(--p-line-height);
+  letter-spacing: $p_letter_spacing;
   hyphens: auto;
 }
 
@@ -71,32 +72,38 @@ h5 {
   font-family: $h_font_family;
   font-weight: $h_font_weight;
   line-height: var(--h-line-height);
+  letter-spacing: $h_letter_spacing;
 }
 
-h1 {
+h1,
+.h1_size {
   margin-top: 0;
   font-size: var(--h1-size);
 }
 
-h2 {
+h2,
+.h2_size {
   font-size: var(--h2-size);
 }
 
-h3 {
+h3,
+.h3_size {
   font-size: var(--h3-size);
 }
 
-h4 {
+h4,
+.h4_size {
   font-size: var(--h4-size);
 }
 
-h5 {
+h5,
+.h5_size {
   font-size: var(--h5-size);
 }
 
 small,
 code,
-.text_small {
+.small_size {
   font-size: var(--small-size);
 }
 

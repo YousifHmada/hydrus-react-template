@@ -1,10 +1,10 @@
 @import "./variables";
 
 button {
-  color: $black;
+  color: var(--text-color, $white);
   display: inline-block;
   font-family: $p_font_family;
-  font-weight: $p_font_weight;
+  font-weight: $h_font_weight;
   line-height: var(--p-line-height);
   text-align: center;
   text-decoration: none;
@@ -13,9 +13,9 @@ button {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  background-color: transparent;
+  background-color: var(--color);
   border: $border;
-  padding: $padding;
+  padding: $padding_sm_top $padding_lg_right;
   font-size: var(--p-size);
   border-radius: $border_radius;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
@@ -34,11 +34,8 @@ button {
   &:disabled,
   &.disabled {
     pointer-events: none;
-    opacity: 0.65;
+    opacity: $btn_disabled_opacity;
   }
-  color: $white;
-  background-color: var(--color);
-  border-color: var(--color);
   &.outline {
     background-color: transparent;
     color: var(--color);
@@ -47,13 +44,12 @@ button {
   &:hover,
   &:focus {
     background-color: var(--color-600);
-    border-color: var(--color-700);
     &.outline {
-      color: $white;
+      color: var(--text-color, $white);
     }
   }
   &:focus {
-    box-shadow: $box_shadow;
+    box-shadow: $btn_box_shadow;
   }
   &:active,
   .active {

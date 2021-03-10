@@ -101,6 +101,7 @@ function Layout() {
           </button>
         </div>
       </div>
+
       <div id="text" className="container">
         <h1>A Visual Type Scale</h1>
         <p>
@@ -165,6 +166,27 @@ function Layout() {
         <p>A Visual Type Scale</p>
         <small>A Visual Type Scale</small>
       </div>
+      <div id="inputs" className="card">
+        <input type="text" placeholder="Email or Phone" />
+        <input type="password" placeholder="Password" />
+        <input type="text" placeholder="Email or Phone" required />
+        <input type="text" placeholder="Email or Phone" disabled />
+        <input type="text" className="valid" placeholder="Email or Phone" />
+        <input type="text" className="invalid" placeholder="Email or Phone" />
+        <input
+          type="text"
+          className="lg"
+          placeholder="Email or Phone"
+          required
+        />
+        <input
+          type="text"
+          className="sm"
+          placeholder="Email or Phone"
+          required
+        />
+      </div>
+
       <div id="containers">
         <div className="container">
           <p>

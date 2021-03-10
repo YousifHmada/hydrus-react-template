@@ -1,0 +1,17 @@
+@import "./variables";
+
+.card {
+  margin: auto;
+  max-width: $bp_sm;
+  border: $border;
+  box-shadow: $box-shadow;
+  border-radius: $border_radius;
+  padding: $padding_lg;
+}
+
+@media (max-width: $bp_sm) {
+  .card {
+      max-width: none;
+      padding: $padding_sm;
+  }
+}

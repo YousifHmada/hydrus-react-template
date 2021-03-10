@@ -17,12 +17,24 @@
   }
 }
 
+#inputs {
+  margin-top: $margin_lg_top;
+  margin-bottom: $margin_lg_bottom;
+  input {
+    display: block;
+    margin-top: $margin_lg_top;
+  }
+}
+
 #containers {
+  margin-top: $margin_lg_top;
   & > * {
-    background: $gray_color_50;
     padding: $padding;
-    border: $border;
+    margin-top: $margin_top;
     box-shadow: $box-shadow;
+    border: $border;
+    border-color: $white;
+    border-radius: $border_radius;
     & > p {
       margin: 0;
     }
