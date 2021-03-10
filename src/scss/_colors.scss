@@ -1,0 +1,100 @@
+@import "./variables";
+
+:root {
+  /*Apply gray as default color*/
+  --color-shadow: #{$gray_color_shadow};
+  --color-50: #{$gray_color_50};
+  --color-100: #{$gray_color_100};
+  --color-200: #{$gray_color_200};
+  --color-300: #{$gray_color_300};
+  --color-400: #{$gray_color_400};
+  --color: #{$gray_color};
+  --color-600: #{$gray_color_600};
+  --color-700: #{$gray_color_700};
+  --color-800: #{$gray_color_800};
+  --color-900: #{$gray_color_900};
+}
+
+.primary {
+  --color-shadow: #{$primary_color_shadow};
+  --color-50: #{$primary_color_50};
+  --color-100: #{$primary_color_100};
+  --color-200: #{$primary_color_200};
+  --color-300: #{$primary_color_300};
+  --color-400: #{$primary_color_400};
+  --color: #{$primary_color};
+  --color-600: #{$primary_color_600};
+  --color-700: #{$primary_color_700};
+  --color-800: #{$primary_color_800};
+  --color-900: #{$primary_color_900};
+}
+
+.secondary {
+  --color-shadow: #{$secondary_color_shadow};
+  --color-50: #{$secondary_color_50};
+  --color-100: #{$secondary_color_100};
+  --color-200: #{$secondary_color_200};
+  --color-300: #{$secondary_color_300};
+  --color-400: #{$secondary_color_400};
+  --color: #{$secondary_color};
+  --color-600: #{$secondary_color_600};
+  --color-700: #{$secondary_color_700};
+  --color-800: #{$secondary_color_800};
+  --color-900: #{$secondary_color_900};
+}
+
+.success {
+  --color-shadow: #{$success_color_shadow};
+  --color-50: #{$success_color_50};
+  --color-100: #{$success_color_100};
+  --color-200: #{$success_color_200};
+  --color-300: #{$success_color_300};
+  --color-400: #{$success_color_400};
+  --color: #{$success_color};
+  --color-600: #{$success_color_600};
+  --color-700: #{$success_color_700};
+  --color-800: #{$success_color_800};
+  --color-900: #{$success_color_900};
+}
+
+.danger {
+  --color-shadow: #{$danger_color_shadow};
+  --color-50: #{$danger_color_50};
+  --color-100: #{$danger_color_100};
+  --color-200: #{$danger_color_200};
+  --color-300: #{$danger_color_300};
+  --color-400: #{$danger_color_400};
+  --color: #{$danger_color};
+  --color-600: #{$danger_color_600};
+  --color-700: #{$danger_color_700};
+  --color-800: #{$danger_color_800};
+  --color-900: #{$danger_color_900};
+}
+
+.warning {
+  --color-shadow: #{$warning_color_shadow};
+  --color-50: #{$warning_color_50};
+  --color-100: #{$warning_color_100};
+  --color-200: #{$warning_color_200};
+  --color-300: #{$warning_color_300};
+  --color-400: #{$warning_color_400};
+  --color: #{$warning_color};
+  --color-600: #{$warning_color_600};
+  --color-700: #{$warning_color_700};
+  --color-800: #{$warning_color_800};
+  --color-900: #{$warning_color_900};
+}
+
+.gray {
+  --color-shadow: #{$gray_color_shadow};
+  --color-50: #{$gray_color_50};
+  --color-100: #{$gray_color_100};
+  --color-200: #{$gray_color_200};
+  --color-300: #{$gray_color_300};
+  --color-400: #{$gray_color_400};
+  --color: #{$gray_color};
+  --color-600: #{$gray_color_600};
+  --color-700: #{$gray_color_700};
+  --color-800: #{$gray_color_800};
+  --color-900: #{$gray_color_900};
+}

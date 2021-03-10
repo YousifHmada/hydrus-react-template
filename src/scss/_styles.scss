@@ -1,0 +1,14 @@
+@import "./variables";
+
+body {
+  background: $white;
+  font-family: $p_font_family;
+  font-weight: $p_font_weight;
+  line-height: var(--p-line-height);
+  hyphens: auto;
+  color: $black;
+}
+
+* {
+  box-sizing: border-box;
+}

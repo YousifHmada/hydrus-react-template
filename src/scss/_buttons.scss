@@ -1,8 +1,10 @@
+@import "./variables";
+
 button {
-  color: var(--black);
+  color: $black;
   display: inline-block;
-  font-family: var(--p-font-family);
-  font-weight: var(--p-font-weight);
+  font-family: $p_font_family;
+  font-weight: $p_font_weight;
   line-height: var(--p-line-height);
   text-align: center;
   text-decoration: none;
@@ -12,29 +14,29 @@ button {
   -moz-user-select: none;
   user-select: none;
   background-color: transparent;
-  border: var(--border);
-  padding: var(--padding);
+  border: $border;
+  padding: $padding;
   font-size: var(--p-size);
-  border-radius: var(--border-radius);
+  border-radius: $border_radius;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   outline: none;
   &.lg {
-    padding: var(--padding-lg);
+    padding: $padding_lg;
     font-size: var(--h5-size);
-    border-radius: var(--border-radius-lg);
+    border-radius: $border_radius_lg;
   }
   &.sm {
-    padding: var(--padding-sm);
+    padding: $padding_sm;
     font-size: var(--small-size);
-    border-radius: var(--border-radius-sm);
+    border-radius: $border_radius_sm
   }
   &:disabled,
   &.disabled {
     pointer-events: none;
     opacity: 0.65;
   }
-  color: var(--white);
+  color: $white;
   background-color: var(--color);
   border-color: var(--color);
   &.outline {
@@ -47,11 +49,11 @@ button {
     background-color: var(--color-600);
     border-color: var(--color-700);
     &.outline {
-      color: var(--white);
+      color: $white;
     }
   }
   &:focus {
-    box-shadow: var(--box-shadow);
+    box-shadow: $box_shadow;
   }
   &:active,
   .active {
@@ -60,7 +62,7 @@ button {
   }
   &.link {
     --color: var(--primary-color);
-    font-weight: var(--h-font-weight);
+    font-weight: $h_font_weight;
     color: var(--color);
     background: none;
     border: none;

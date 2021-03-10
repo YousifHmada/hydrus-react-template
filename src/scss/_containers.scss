@@ -1,6 +1,8 @@
+@import "./variables";
+
 .container {
   margin: auto;
-  max-width: var(--bp-xxl);
+  max-width: $bp_xxl;
   &.fluid {
     max-width: none;
     display: flex;
@@ -8,18 +10,18 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: $bp_xxl) {
   .container {
-    max-width: var(--bp-xl);
+    max-width: $bp_xl;
     &.xxl {
       max-width: none;
     }
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: $bp_xl) {
   .container {
-    max-width: var(--bp-lg);
+    max-width: $bp_lg;
     &.xl,
     &.xxl {
       max-width: none;
@@ -27,9 +29,9 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: $bp_lg) {
   .container {
-    max-width: var(--bp-md);
+    max-width: $bp_md;
     &.lg,
     &.xl,
     &.xxl {
@@ -38,9 +40,9 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $bp_md) {
   .container {
-    max-width: var(--bp-sm);
+    max-width: $bp_sm;
     &.md,
     &.lg,
     &.xl,
@@ -50,7 +52,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: $bp_sm) {
   .container {
     &.sm,
     &.md,

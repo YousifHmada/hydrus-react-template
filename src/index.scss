@@ -1,10 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
-
-@import "./layout/breakpoints.scss";
-@import "./layout/colors.scss";
-@import "./layout/text.scss";
-@import "./layout/colors.scss";
-@import "./layout/styles.scss";
-@import "./layout/containers.scss";
-@import "./layout/helpers.scss";
-@import "./layout/buttons.scss";
+@import "./scss/variables";
+@import "./scss/colors";
+@import "./scss/text";
+@import "./scss/colors";
+@import "./scss/styles";
+@import "./scss/containers";
+@import "./scss/helpers";
+@import "./scss/buttons";

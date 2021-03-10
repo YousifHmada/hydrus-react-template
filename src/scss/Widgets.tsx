@@ -1,9 +1,9 @@
 import React from "react";
-import "./helpers/layout.scss";
+import "./helpers/Widgets.scss";
 
 function Layout() {
   return (
-    <div id="layout">
+    <div id="widgets">
       <div id="buttons" className="container">
         <div className="container fluid">
           <button type="button">Default</button>
