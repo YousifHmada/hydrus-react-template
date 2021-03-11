@@ -4,11 +4,31 @@
   margin: auto;
   max-width: $bp_xxl;
   padding: $gaps;
+  box-shadow: $box-shadow;
+  border: $gap solid transparent;
+  border-radius: $border_radius;
+  &:nth-last-child(n + 2) {
+    margin-bottom: $gap;
+  }
   &.fluid {
     max-width: none;
     display: flex;
     justify-content: flex-start;
     flex: row wrap;
+  }
+  &.transparent {
+    background: none;
+    border-color: transparent;
+    box-shadow: none;
+  }
+  &.transparent {
+    border: none;
+  }
+  @include dark_mode() {
+    background-color: $gray_color_800;
+    &.transparent {
+      background: none;
+    }
   }
 }
 
@@ -56,13 +76,14 @@
 
 @media (max-width: $bp_sm) {
   .container {
+    padding: $s_gaps;
+    border-radius: 0;
     &.sm,
     &.md,
     &.lg,
     &.xl,
     &.xxl {
       max-width: none;
-      padding: $s_gaps;
     }
   }
 }

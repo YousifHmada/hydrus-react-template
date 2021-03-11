@@ -1,27 +1,7 @@
 @import "./variables";
 
 .card {
+  @extend .container;
+  max-width: $bp_sm;
   margin: auto;
-  width: $bp_sm;
-  border: $gap solid transparent;
-  box-shadow: $box-shadow;
-  border-radius: $border_radius;
-  padding: $gaps;
-  @include dark_mode() {
-    background-color: $gray_color_800;
-  }
-  &.transparent {
-    background: none;
-    border: none;
-    box-shadow: none;
-    @include dark_mode() {
-      background: none;
-    }
-  }
-  @media (max-width: $bp_sm) {
-    & {
-      width: 100%;
-      padding: $s_gaps;
-    }
-  }
 }

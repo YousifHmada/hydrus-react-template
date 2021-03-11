@@ -11,7 +11,7 @@
     box-shadow: $box-shadow;
     border-radius: 50%;
     position: fixed;
-    margin:0;
+    margin: 0;
     bottom: 4px;
     right: 4px;
   }
@@ -43,23 +43,20 @@
 
 .card.transparent {
   display: flex;
-  & :nth-child(n + 2){
-    margin-left: $s_gap;
+  & :nth-child(n + 3) {
+    margin-left: $d_gap;
   }
   & :nth-child(2) {
     margin-left: auto;
   }
-}
-
-#containers {
-  margin-top: $gap;
-  .container {
-    box-shadow: $box-shadow;
-    border: $gap solid transparent;
-    border-radius: $border_radius;
-    margin-bottom: $gap;
-    @include dark_mode() {
-      background-color: $gray_color_800;
+  @media (max-width: $bp_md) {
+    & :nth-child(n + 3) {
+      margin-left: $gap;
+    }
+  }
+  @media (max-width: $bp_sm) {
+    & :nth-child(n + 3) {
+      margin-left: $s_gap;
     }
   }
 }

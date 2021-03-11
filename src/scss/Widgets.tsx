@@ -19,7 +19,7 @@ function Layout() {
       <button type="button" onClick={toggleTheme} className="link toggle-theme">
         <FiSettings size="50px" />
       </button>
-      <section id="buttons" className="container m-t-2">
+      <section id="buttons" className="container transparent">
         <div>
           <button type="button">Default</button>
           <button type="button" className="primary">
@@ -120,7 +120,7 @@ function Layout() {
         </div>
       </section>
 
-      <section id="text" className="container">
+      <section id="text" className="container transparent no-border">
         <h1>A Visual Type Scale</h1>
         <p>
           <strong>Lorem Ipsum</strong> is simply dummy text of the printing and
