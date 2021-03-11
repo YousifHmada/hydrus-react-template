@@ -91,6 +91,9 @@ input {
       );
     }
   }
+  &.block {
+    min-width: 100%;
+  }
   @include dark_mode() {
     border-color: transparent;
     background-color: $gray_color_700;

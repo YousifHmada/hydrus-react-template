@@ -9,13 +9,13 @@ function Home() {
       <p className="m-t-3 h4-size">Sign in</p>
       <form>
         <input
-          className="m-t-1 m-b-2"
+          className="block m-t-1 m-b-2"
           type="text"
           placeholder="Email or Phone"
         />
-        <input className="m-b-2" type="password" placeholder="Password" />
-        <div>
-          <div>
+        <input className="block m-b-2" type="password" placeholder="Password" />
+        <div className="container transparent no-border no-padding fluid">
+          <div className="f-50">
             <div className="m-b-2">
               <Link className="primary" to="/forgot-password">
                 Forgot Password?
@@ -27,8 +27,8 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div>
-            <button type="submit" className="primary">
+          <div className="f-50">
+            <button type="submit" className="primary float-right">
               Sign in
             </button>
           </div>

@@ -1,8 +1,11 @@
-.align-right {
-    float: right;
-    text-align: right;
+.float-right {
+  float: right;
+}
+
+.f-50 {
+  flex-basis: 50%;
 }
 
 .filler {
-    flex: 1;
+  flex: 1;
 }

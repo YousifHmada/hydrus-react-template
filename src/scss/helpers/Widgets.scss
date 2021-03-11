@@ -7,6 +7,7 @@
     text-align: center;
     vertical-align: middle;
     background-color: $gray_color_800;
+    color: $gray_color_100;
     border: $gap solid transparent;
     box-shadow: $box-shadow;
     border-radius: 50%;
@@ -18,12 +19,6 @@
 }
 
 #buttons {
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
   button,
   a {
     margin: $s_gaps;
@@ -35,28 +30,26 @@
     display: block;
     margin-top: $gap;
   }
-  a {
-    display: block;
-    margin-top: $gap;
-  }
 }
 
-.card.transparent {
-  display: flex;
-  & :nth-child(n + 3) {
-    margin-left: $d_gap;
-  }
-  & :nth-child(2) {
-    margin-left: auto;
-  }
-  @media (max-width: $bp_md) {
+#widgets {
+  .card.transparent {
+    display: flex;
     & :nth-child(n + 3) {
-      margin-left: $gap;
+      margin-left: $d_gap;
     }
-  }
-  @media (max-width: $bp_sm) {
-    & :nth-child(n + 3) {
-      margin-left: $s_gap;
+    & :nth-child(2) {
+      margin-left: auto;
+    }
+    @media (max-width: $bp_md) {
+      & :nth-child(n + 3) {
+        margin-left: $gap;
+      }
+    }
+    @media (max-width: $bp_sm) {
+      & :nth-child(n + 3) {
+        margin-left: $s_gap;
+      }
     }
   }
 }

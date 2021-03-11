@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Widgets from "./scss/Widgets";
 import Home from "./containers/Home";
 import Footer from "./components/Footer";
-import CreateAccount from "./containers/CreateAccount";
-import ForgotPassword from "./containers/ForgotPassword";
 
 function App() {
   return (
@@ -20,10 +18,10 @@ function App() {
                 <Home />
               </Route>
               <Route path="/forgot-password">
-                <ForgotPassword />
+                <Home />
               </Route>
               <Route path="/create-account">
-                <CreateAccount />
+                <Home />
               </Route>
             </Switch>
             <Footer />

@@ -184,29 +184,22 @@ function Layout() {
         <p>A Visual Type Scale</p>
         <small>A Visual Type Scale</small>
       </section>
-      <section id="inputs" className="card m-t-2">
+      <section id="inputs" className="card m-t-5">
         <input type="text" placeholder="Email or Phone" />
-        <input type="password" placeholder="Password" />
-        <input type="text" placeholder="Email or Phone" required />
-        <input type="text" placeholder="Email or Phone" disabled />
-        <input type="text" className="valid" placeholder="Email or Phone" />
-        <input type="text" className="invalid" placeholder="Email or Phone" />
-        <input
-          type="text"
-          className="lg"
-          placeholder="Email or Phone"
-          required
-        />
-        <input
-          type="text"
-          className="sm"
-          placeholder="Email or Phone"
-          required
-        />
-        <a href="https://www.google.com/">Forgot Password?</a>
-        <a href="https://www.google.com/">Create an account</a>
+        <input type="text" placeholder="Disabled..." disabled />
+        <input type="text" className="valid" placeholder="Valid..." />
+        <input type="text" className="invalid" placeholder="Invalid..." />
+        <input type="text" className="block" placeholder="Block..." />
+        <input type="text" className="lg" placeholder="Large..." required />
+        <input type="text" className="sm" placeholder="Small..." required />
+        <div className="m-t-2">
+          <a href="https://www.google.com/">Forgot Password?</a>
+        </div>
+        <div>
+          <a href="https://www.google.com/">Create an account</a>
+        </div>
       </section>
-      <section className="card transparent m-b-4">
+      <section className="card transparent m-t--1 m-b-5">
         <a href="https://www.google.com">Help</a>
         <a href="https://www.google.com">About</a>
         <a href="https://www.google.com">Privacy</a>

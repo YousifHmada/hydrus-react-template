@@ -21,8 +21,11 @@
     border-color: transparent;
     box-shadow: none;
   }
-  &.transparent {
+  &.no-border {
     border: none;
+  }
+  &.no-padding {
+    padding: 0;
   }
   @include dark_mode() {
     background-color: $gray_color_800;
@@ -77,6 +80,9 @@
 @media (max-width: $bp_sm) {
   .container {
     padding: $s_gaps;
+    &.no-padding {
+      padding: 0
+    }
     border-radius: 0;
     &.sm,
     &.md,
