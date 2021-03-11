@@ -94,7 +94,7 @@ button {
     }
     &:focus {
       border-radius: 0;
-      border-color: var(--color-600);
+      border-color: var(--color-700);
     }
     @include dark_mode() {
       color: var(--color);

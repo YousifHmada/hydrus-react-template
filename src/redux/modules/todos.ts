@@ -119,16 +119,3 @@ export const setFilters = (filters: Filter[]) => ({
 export const getTodosState = (state: State) => state.todos;
 
 export const getTodoList = (state: State) => getTodosState(state).entities;
-
-export const getFilters = (state: State) => getTodosState(state).filters;
-
-export const getFilteredTodos = (state: State) => {
-  const allTodos = getTodoList(state);
-  const filters = getFilters(state);
-  return allTodos.filter((todo: Todo) =>
-    filters.reduce<boolean>(
-      (acc: boolean, filter: Filter) => acc && filter(todo),
-      true
-    )
-  );
-};
