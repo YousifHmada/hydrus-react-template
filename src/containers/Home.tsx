@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SigningCard from "../components/SiginingCard";
+import "./Home.scss";
 
 function Home() {
   return (

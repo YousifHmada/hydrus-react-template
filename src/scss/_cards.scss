@@ -6,7 +6,7 @@
   border: $gap solid transparent;
   box-shadow: $box-shadow;
   border-radius: $border_radius;
-  padding: $d_v_gaps;
+  padding: $gaps;
   @include dark_mode() {
     background-color: $gray_color_800;
   }
@@ -21,6 +21,7 @@
   @media (max-width: $bp_sm) {
     & {
       width: 100%;
+      padding: $s_gaps;
     }
   }
 }

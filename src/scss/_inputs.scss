@@ -19,15 +19,15 @@
 
 @mixin apply_input_colors(
   $ph_color,
-  $color,
   $border_color,
-  $shadow_color: null
+  $shadow_color: null,
+  $color: null
 ) {
   @include placeholder($ph_color);
-  color: $color;
   border-color: $border_color;
   --color-shadow: $shadow_color;
   box-shadow: $btn_box_shadow;
+  color: $color;
 }
 
 input {
@@ -51,16 +51,23 @@ input {
   font-size: var(--p-size);
   line-height: var(--h-size);
   outline: none;
-  color: $gray_color_700;
-  border-color: $gray_color_300;
   background-color: $white;
-  @include placeholder($gray_color_400);
+  @include apply_input_colors(
+    $gray_color_400,
+    $gray_color_400,
+    $gray_color_shadow
+  );
+  &.lg {
+    font-size: var(--h5-size);
+  }
+  &.sm {
+    font-size: var(--small-size);
+  }
   &:focus {
     @include apply_input_colors(
-      $primary_color_400,
-      $primary_color_400,
-      $primary_color_400,
-      $primary_color_shadow
+      $gray_color_900,
+      $gray_color_900,
+      $gray_color_shadow $gray_color
     );
   }
   &:disabled {
@@ -71,37 +78,31 @@ input {
       @include apply_input_colors(
         $success_color_700,
         $success_color_700,
-        $success_color_700,
-        $success_color_shadow
+        $success_color_shadow,
+        $success_color_700
       );
     }
     &.invalid {
       @include apply_input_colors(
         $danger_color_700,
         $danger_color_700,
-        $danger_color_700,
-        $danger_color_shadow
+        $danger_color_shadow,
+        $danger_color_700
       );
     }
   }
   @include dark_mode() {
     border-color: transparent;
     background-color: $gray_color_700;
-    color: $gray_color;
+    @include placeholder($gray_color_600);
+    color: $gray_color_400;
     &:focus {
       @include apply_input_colors(
-        $gray_color,
-        $gray_color,
-        $gray_color,
-        $gray_color_shadow
+        $gray_color_600,
+        $gray_color_600,
+        $gray_color_shadow $gray_color_600
       );
     }
-  }
-  &.lg {
-    font-size: var(--h5-size);
-  }
-  &.sm {
-    font-size: var(--small-size);
   }
 }
 

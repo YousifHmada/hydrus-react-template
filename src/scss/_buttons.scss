@@ -1,27 +1,28 @@
 @import "./variables";
 
 button,
-.link {
-  color: var(--text-color, $white);
+.link,
+a {
   display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  font-size: var(--p-size);
   font-family: $p_font_family;
   font-weight: $h_font_weight;
   line-height: var(--p-line-height);
-  text-align: center;
   text-decoration: none;
-  vertical-align: middle;
   cursor: pointer;
+  outline: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  background-color: var(--color);
-  border: $s2_gap solid transparent;
   padding: $s_gap $d_gap;
-  font-size: var(--p-size);
+  border: $s2_gap solid transparent;
   border-radius: $border_radius;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  outline: none;
+  background-color: var(--color);
+  color: var(--text-color, $white);
   &.lg {
     padding: $gap $d2_gap;
     font-size: var(--h5-size);
@@ -32,15 +33,15 @@ button,
     font-size: var(--small-size);
     border-radius: $border_radius_sm;
   }
-  &:disabled,
-  &.disabled {
-    pointer-events: none;
-    opacity: $btn_disabled_opacity;
-  }
   &.outline {
     background-color: transparent;
     color: var(--color);
     border-color: var(--color);
+  }
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    opacity: $btn_disabled_opacity;
   }
   &:hover,
   &:focus {
@@ -59,26 +60,32 @@ button,
   }
   @include dark_mode() {
     color: $black;
+    &.outline {
+      color: var(--color);
+      &:hover,
+      &:focus {
+        color: $black;
+      }
+    }
   }
 }
 
-.link {
-  --color: var(--primary-color);
-  color: var(--color);
-  background: none;
-  border: none;
+.link,
+a {
+  text-align: inherit;
   padding: 0;
   margin: 0;
+  color: var(--color);
+  background: none;
+  border-color: transparent;
   &:hover,
-  &:focus {
-    border: none;
-    border-color: var(--color-600);
+  &:focus,
+  &:active,
+  .active {
     background: none;
-    border-radius: 0;
-    box-shadow: none;
   }
   &:focus {
-    border: $s2_gap solid;
+    border-color: var(--color-600);
   }
   @include dark_mode() {
     color: var(--color);

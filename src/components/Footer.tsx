@@ -18,7 +18,6 @@ function Footer() {
     <div id="footer" className="card transparent">
       <button type="button" onClick={toggleTheme} className="link">
         <FiSettings size="20px" />
-        <i className="fad fa-tire-rugged"></i>
       </button>
       <select data-placeholder="Select Language" defaultValue="default">
         <option value="default" disabled>

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Widgets from "./scss/Widgets";
-import "./App.scss";
 import Home from "./containers/Home";
 import Footer from "./components/Footer";
 import CreateAccount from "./containers/CreateAccount";

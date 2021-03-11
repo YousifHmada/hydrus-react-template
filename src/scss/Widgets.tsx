@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import { FiSettings } from "react-icons/fi";
 import "./helpers/Widgets.scss";
 
 function Layout() {
+  const [darkModeEnabled, setDarkMode] = useState<boolean>(
+    window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+  function toggleTheme() {
+    setDarkMode(!darkModeEnabled);
+    document.documentElement.setAttribute(
+      "dark",
+      darkModeEnabled ? "false" : "true"
+    );
+  }
   return (
     <div id="widgets">
-      <div id="buttons" className="container">
-        <div className="container fluid">
+      <button type="button" onClick={toggleTheme} className="link toggle-theme">
+        <FiSettings size="50px" />
+      </button>
+      <section id="buttons" className="container m-t-2">
+        <div>
           <button type="button">Default</button>
           <button type="button" className="primary">
             Primary
@@ -26,7 +41,7 @@ function Layout() {
             Link
           </button>
         </div>
-        <div className="container fluid">
+        <div>
           <button type="button" className="outline">
             Default
           </button>
@@ -45,8 +60,11 @@ function Layout() {
           <button type="button" className="warning outline">
             Warning
           </button>
+          <a href="https://google.com" className="link">
+            Link
+          </a>
         </div>
-        <div className="container fluid">
+        <div>
           <button type="button" className="active">
             Default
           </button>
@@ -69,7 +87,7 @@ function Layout() {
             Link
           </button>
         </div>
-        <div className="container fluid">
+        <div>
           <button type="button" disabled>
             Default
           </button>
@@ -92,7 +110,7 @@ function Layout() {
             Link
           </button>
         </div>
-        <div className="container fluid">
+        <div>
           <button type="button" className="primary lg">
             Primary
           </button>
@@ -100,9 +118,9 @@ function Layout() {
             Secondary
           </button>
         </div>
-      </div>
+      </section>
 
-      <div id="text" className="container">
+      <section id="text" className="container">
         <h1>A Visual Type Scale</h1>
         <p>
           <strong>Lorem Ipsum</strong> is simply dummy text of the printing and
@@ -165,8 +183,8 @@ function Layout() {
         </p>
         <p>A Visual Type Scale</p>
         <small>A Visual Type Scale</small>
-      </div>
-      <div id="inputs" className="card">
+      </section>
+      <section id="inputs" className="card m-t-2">
         <input type="text" placeholder="Email or Phone" />
         <input type="password" placeholder="Password" />
         <input type="text" placeholder="Email or Phone" required />
@@ -187,52 +205,57 @@ function Layout() {
         />
         <a href="https://www.google.com/">Forgot Password?</a>
         <a href="https://www.google.com/">Create an account</a>
-      </div>
+      </section>
+      <section className="card transparent m-b-4">
+        <a href="https://www.google.com">Help</a>
+        <a href="https://www.google.com">About</a>
+        <a href="https://www.google.com">Privacy</a>
+      </section>
 
-      <div id="containers">
+      <section id="containers" className="m-b-2">
         <div className="container">
-          <p>
+          <span>
             <code>.container</code>, which sets a max-width at each responsive
             breakpoint
-          </p>
+          </span>
         </div>
         <div className="container sm">
-          <p>
+          <span>
             <code>.container</code> <code>sm</code>, 100% wide until small
             breakpoint
-          </p>
+          </span>
         </div>
         <div className="container md">
-          <p>
+          <span>
             <code>.container</code> <code>md</code>, 100% wide until medium
             breakpoint
-          </p>
+          </span>
         </div>
         <div className="container lg">
-          <p>
+          <span>
             <code>.container</code> <code>lg</code>, 100% wide until large
             breakpoint
-          </p>
+          </span>
         </div>
         <div className="container xl">
-          <p>
+          <span>
             <code>.container</code> <code>xl</code>, 100% wide until extra large
             breakpoint
-          </p>
+          </span>
         </div>
         <div className="container xxl">
-          <p>
+          <span>
             <code>.container</code> <code>.xxl</code>, 100% wide until extra
             extra large breakpoint
-          </p>
+          </span>
         </div>
         <div className="container fluid">
-          <p>
+          <span>
             <code>.container</code> <code>.fluid</code>, which is width: 100% at
             all breakpoints
-          </p>
+          </span>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

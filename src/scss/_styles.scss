@@ -24,16 +24,6 @@ body {
   box-sizing: border-box;
 }
 
-a {
-  font-weight: $h_font_weight;
-  text-decoration: none;
-  outline: none;
-  color: var(--color);
-  &:focus {
-    border: $s2_gap solid;
-    border-color: var(--color-600);
-    @include dark_mode() {
-      border-color: $primary_color_600;
-    }
-  }
+code {
+  color: $danger_color;
 }
