@@ -1,0 +1,5 @@
+@mixin keyboard_user_only {
+  html[keyboard-user="true"] & {
+    @content;
+  }
+}

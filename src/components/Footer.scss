@@ -3,15 +3,18 @@
 #footer {
   display: flex;
   align-items: center;
+  & :nth-child(2),
   & :nth-of-type(n + 2) {
     margin-left: $d_gap;
   }
   @media (max-width: $bp_md) {
+    & :nth-child(2),
     & :nth-child(n + 2) {
       margin-left: $gap;
     }
   }
   @media (max-width: $bp_sm) {
+    & :nth-child(2),
     & :nth-child(n + 4) {
       margin-left: $s_gap;
     }

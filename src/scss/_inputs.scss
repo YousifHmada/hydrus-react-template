@@ -17,7 +17,8 @@
   }
 }
 
-input {
+input,
+select {
   writing-mode: horizontal-tb !important;
   -webkit-writing-mode: horizontal-tb !important;
   text-rendering: auto;
@@ -43,26 +44,30 @@ input {
   color: $gray_color_900;
   @include placeholder($gray_color_700);
   border-color: $gray_color_200;
-  &.valid {
-    @include placeholder($success_color_700);
-    color: $success_color_700;
-    border-color: $success_color_600;
-  }
-  &.invalid {
-    @include placeholder($danger_color_700);
-    color: $danger_color_700;
-    border-color: $danger_color_600;
-  }
   &.lg {
     font-size: var(--h5-size);
   }
   &.sm {
     font-size: var(--small-size);
   }
+  &.valid {
+    @include placeholder($success_color_700);
+    border-color: $success_color_600;
+  }
+  &.invalid {
+    @include placeholder($danger_color_700);
+    border-color: $danger_color_600;
+  }
   &:focus {
     @include placeholder($gray_color_700);
     color: $gray_color_700;
     border-color: $gray_color_800;
+    &.valid {
+      border-color: $success_color_800;
+    }
+    &.invalid {
+      border-color: $danger_color_800;
+    }
   }
   &:disabled {
     pointer-events: none;
@@ -74,59 +79,28 @@ input {
     background-color: $gray_color_900;
     border-color: $gray_color_800;
     &.valid {
-      color: $success_color_800;
-      border-color: $success_color_700;
+      border-color: $success_color_800;
     }
     &.invalid {
-      color: $danger_color_800;
-      border-color: $danger_color_700;
+      border-color: $danger_color_800;
     }
     &:focus {
-      border-color: $primary_color_700;
+      border-color: $gray_color_700;
+      &.valid {
+        border-color: $success_color_700;
+      }
+      &.invalid {
+        border-color: $danger_color_700;
+      }
     }
   }
 }
 
 select {
-  writing-mode: horizontal-tb !important;
-  -webkit-writing-mode: horizontal-tb !important;
-  text-rendering: auto;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: start;
-  appearance: auto;
-  -webkit-rtl-ordering: logical;
-  cursor: pointer;
-  margin: 0;
-  border: none;
-  font-size: var(--p-size);
-  line-height: var(--h-size);
-  outline: none;
-  color: $gray_color_700;
-  border-color: $gray_color_300;
-  background-color: $white;
-  text-decoration: underline;
   -moz-appearance: none;
-  @include dark_mode() {
-    border-color: transparent;
-    background-color: transparent;
-    color: $gray_color;
-  }
-  :after {
-    content: "v";
-  }
-  &:focus {
-    border: $s2_gap solid;
-    border-color: var(--color-600);
-    background-color: none;
-    border-radius: 0;
-    box-shadow: none;
-    @include dark_mode() {
-      border-color: $gray_color_700;
-    }
-  }
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+  cursor: pointer;
 }

@@ -94,7 +94,12 @@ button {
     }
     &:focus {
       border-radius: 0;
-      border-color: var(--color-700);
+      border-color: transparent;
+      box-shadow: none;
+      @include keyboard_user_only() {
+        border-color: var(--color-700);
+        box-shadow: $btn_box_shadow;
+      }
     }
     @include dark_mode() {
       color: var(--color);
