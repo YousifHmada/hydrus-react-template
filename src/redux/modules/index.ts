@@ -1,8 +1,4 @@
 import { combineReducers } from "redux";
-import students, { TodosState } from "./todos";
+import auth from "./auth";
 
-export type RootState = {
-  todos: TodosState;
-};
-
-export default combineReducers({ students });
+export default combineReducers({ auth });

@@ -2,7 +2,9 @@ import React from "react";
 import { IReactParentPropTypes } from "../redux/modules/helpers/types";
 import "./AuthCard.scss";
 
-function AuthCard({ children }: IReactParentPropTypes) {
+interface AuthCardPropTypes extends IReactParentPropTypes {}
+
+function AuthCard({ children }: AuthCardPropTypes) {
   return (
     <div className="card auth-card p-t-4 p-b-3 p-l-3-sm p-r-3-sm p-l-4-lg p-r-4-lg">
       <span>

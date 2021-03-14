@@ -1,3 +1,5 @@
+@import "./variables";
+
 .float-right {
   float: right;
 }
@@ -16,4 +18,21 @@
 
 .m-l-auto {
   margin-left: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: $h_font_weight;
+}
+
+.text {
+  &-danger {
+    color: $danger_color_700;
+  }
+  &-success {
+    color: $success_color_700;
+  }
 }

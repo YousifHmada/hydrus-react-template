@@ -47,7 +47,7 @@ select {
   @include placeholder($gray_color_700);
   border-color: $gray_color_200;
   background-repeat: no-repeat;
-  background-position: calc(100% - #{$gap}) center; 
+  background-position: calc(100% - #{$gap}) center;
   &.lg {
     font-size: var(--h5-size);
   }
@@ -93,6 +93,13 @@ select {
   }
 }
 
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
 select {
   max-width: $select_max_width;
   -moz-appearance: none;
@@ -107,6 +114,15 @@ select {
   margin: 0;
   > * {
     margin: 0;
+  }
+  &-inline {
+    > * {
+      display: inline;
+      margin-left: $gap;
+    }
+    input {
+      min-width: none;
+    }
   }
   .success {
     margin-top: $s2_gap;

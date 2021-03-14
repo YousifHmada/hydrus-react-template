@@ -1,38 +1,63 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import AuthCard from "../components/AuthCard";
 import Loader from "../components/Loader";
 import { AuthState, resetState, sendMockRequest } from "../redux/modules/auth";
 import { RequestStatus } from "../redux/modules/helpers/types";
-import { isEmpty, validEmail, validPhoneNumber } from "../utils/validate";
+import {
+  isEmpty,
+  validEmail,
+  validPassword,
+  validPhoneNumber,
+} from "../utils/validate";
 
 function isPhoneNumberLikelihood(value: string) {
   return /^\+?[0-9]*$/.test(value) ? 1 : 0;
 }
 
-interface SignInPropTypes {
+interface CreateAccountPropTypes {
   auth: AuthState;
   sendMockRequest: typeof sendMockRequest;
   resetState: typeof resetState;
 }
 
-function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
+function CreateAccount({
+  auth,
+  sendMockRequest,
+  resetState,
+}: CreateAccountPropTypes) {
   const [emailOrPhone, setEmailOrPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [emailPreferences, setEmailPreferences] = useState(false);
 
   const [emailOrPhoneError, setEmailOrPhoneError] = useState<string | null>(
     null
   );
   const [passwordError, setPasswordError] = useState<string | null>(null);
+  const [confirmPasswordError, setConfirmPasswordError] = useState<
+    string | null
+  >(null);
 
   useEffect(() => {
     resetState(); // Reset auth state on component mount
   }, []);
 
+  function runConfirmPasswordValidations() {
+    if (confirmPassword !== password) {
+      setConfirmPasswordError("Those passwords didn’t match. Try again.");
+      return false;
+    } else {
+      setConfirmPasswordError(null);
+      return true;
+    }
+  }
+
   function runPasswordValidations() {
-    if (isEmpty(password)) {
-      setPasswordError("Invalid password");
+    const passwordValidationError = validPassword(password);
+    if (passwordValidationError) {
+      setPasswordError(passwordValidationError);
       return false;
     } else {
       setPasswordError(null);
@@ -74,6 +99,14 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
     }
   }, [password]);
 
+  useEffect(() => {
+    if (isEmpty(confirmPassword)) {
+      setConfirmPasswordError(null);
+    } else {
+      runConfirmPasswordValidations();
+    }
+  }, [confirmPassword]);
+
   function handleEmailOrPhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
     setEmailOrPhone(value);
@@ -84,11 +117,21 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
     setPassword(value);
   }
 
+  function handleConfirmPasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = e.target;
+    setConfirmPassword(value);
+  }
+
+  function handleEmailPreferencesChange() {
+    setEmailPreferences(!emailPreferences);
+  }
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const valid = [
       runEmailOrPhoneValidations(),
       runPasswordValidations(),
+      runConfirmPasswordValidations(),
     ].reduce((agg, cur) => agg && cur, true);
     if (valid) {
       sendMockRequest();
@@ -100,7 +143,9 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
 
   return (
     <AuthCard>
-      <p className="m-t-3 h4-size">Sign in</p>
+      <p className="m-t-3 h4-size">
+        Create your <strong>KidsLoop Account.</strong>
+      </p>
       <form noValidate onSubmit={handleSubmit}>
         <dl className="form-group m-t-1 m-b-2">
           <dd>
@@ -141,8 +186,45 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
             {passwordError}
           </dd>
         </dl>
+        <dl className="form-group m-b-2">
+          <dd>
+            <input
+              className={`block ${
+                confirmPasswordError
+                  ? "invalid"
+                  : !isEmpty(confirmPassword)
+                  ? "valid"
+                  : ""
+              }`}
+              type="password"
+              onChange={handleConfirmPasswordChange}
+              placeholder="Confirm Password"
+              disabled={isLoading}
+            />
+          </dd>
+          <dd aria-live="assertive" className="error">
+            {confirmPasswordError}
+          </dd>
+        </dl>
+        <dl className="form-group-inline m-b-2">
+          <dd>
+            <input
+              id="create-account-email-preferences"
+              type="checkbox"
+              onChange={handleEmailPreferencesChange}
+              disabled={isLoading}
+            />
+          </dd>
+          <dt className="m-b-1">
+            <label htmlFor="create-account-email-preferences">
+              I accept to the Kidsloop Privacy Policy
+            </label>
+          </dt>
+        </dl>
         {auth.error ? (
-          <p className="center text-danger">{auth.error?.message}</p>
+          <p aria-live="assertive" className="center text-danger">
+            {auth.error?.message}
+          </p>
         ) : (
           ""
         )}
@@ -160,29 +242,30 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
         ) : (
           ""
         )}
-        <div className="container fluid transparent no-border no-padding">
-          <div className="f-50">
-            <div className="m-b-2">
-              <Link className="primary" to="/password-reset">
-                Forgot Password?
-              </Link>
-            </div>
-            <div>
-              <Link className="primary" to="/join">
-                Create an account
-              </Link>
-            </div>
-          </div>
-          <div className="f-50">
-            <button
-              type="submit"
-              disabled={isInvalidForm || isLoading}
-              className="primary float-right"
-            >
-              Sign in
-            </button>
-          </div>
-        </div>
+        <button
+          type="submit"
+          disabled={isInvalidForm || isLoading}
+          className="primary block"
+        >
+          Create accout
+        </button>
+        <p className="m-t-1">
+          By creating an account, you agree to the
+          <a
+            className="primary"
+            href="https://www.kidsloop.net/policies/terms/"
+          >
+            Terms of Service
+          </a>
+          . For more information about Kidsloop's privacy practices, see the
+          <a
+            className="primary"
+            href="https://www.kidsloop.net/policies/privacy-notice/"
+          >
+            Kidsloop Privacy Statement
+          </a>
+          . We'll occasionally send you account-related emails.
+        </p>
       </form>
     </AuthCard>
   );
@@ -192,5 +275,7 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
 export default connect(({ auth }) => ({ auth }), {
   sendMockRequest,
   resetState,
+})(
   // @ts-ignore
-})(SignIn);
+  CreateAccount
+);

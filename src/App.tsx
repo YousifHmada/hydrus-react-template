@@ -5,6 +5,8 @@ import Widgets from "./scss/Widgets";
 import SignIn from "./containers/SignIn";
 import Footer from "./components/Footer";
 import { useDetectKeyboardUser } from "./hooks/keyboardUser";
+import PasswordReset from "./containers/PasswordReset";
+import CreateAccount from "./containers/CreateAccount";
 
 function App() {
   useDetectKeyboardUser();
@@ -20,11 +22,11 @@ function App() {
               <Route path="/" exact>
                 <SignIn />
               </Route>
-              <Route path="/forgot-password">
-                <SignIn />
+              <Route path="/password-reset">
+                <PasswordReset />
               </Route>
-              <Route path="/create-account">
-                <SignIn />
+              <Route path="/join">
+                <CreateAccount />
               </Route>
             </Switch>
             <Footer />

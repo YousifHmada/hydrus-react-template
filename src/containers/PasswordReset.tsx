@@ -1,6 +1,6 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import AuthCard from "../components/AuthCard";
 import Loader from "../components/Loader";
 import { AuthState, resetState, sendMockRequest } from "../redux/modules/auth";
@@ -11,34 +11,26 @@ function isPhoneNumberLikelihood(value: string) {
   return /^\+?[0-9]*$/.test(value) ? 1 : 0;
 }
 
-interface SignInPropTypes {
+interface PasswordResetPropTypes {
   auth: AuthState;
   sendMockRequest: typeof sendMockRequest;
   resetState: typeof resetState;
 }
 
-function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
+function PasswordReset({
+  auth,
+  sendMockRequest,
+  resetState,
+}: PasswordResetPropTypes) {
   const [emailOrPhone, setEmailOrPhone] = useState("");
-  const [password, setPassword] = useState("");
 
   const [emailOrPhoneError, setEmailOrPhoneError] = useState<string | null>(
     null
   );
-  const [passwordError, setPasswordError] = useState<string | null>(null);
 
   useEffect(() => {
     resetState(); // Reset auth state on component mount
   }, []);
-
-  function runPasswordValidations() {
-    if (isEmpty(password)) {
-      setPasswordError("Invalid password");
-      return false;
-    } else {
-      setPasswordError(null);
-      return true;
-    }
-  }
 
   function runEmailOrPhoneValidations() {
     const emailValidationError = validEmail(emailOrPhone);
@@ -66,45 +58,36 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
     }
   }, [emailOrPhone]);
 
-  useEffect(() => {
-    if (isEmpty(password)) {
-      setPasswordError(null);
-    } else {
-      runPasswordValidations();
-    }
-  }, [password]);
-
   function handleEmailOrPhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
     setEmailOrPhone(value);
   }
 
-  function handlePasswordChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const { value } = e.target;
-    setPassword(value);
-  }
-
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const valid = [
-      runEmailOrPhoneValidations(),
-      runPasswordValidations(),
-    ].reduce((agg, cur) => agg && cur, true);
+    const valid = runEmailOrPhoneValidations();
     if (valid) {
       sendMockRequest();
     }
   }
 
-  const isInvalidForm = !!emailOrPhoneError && !!passwordError;
+  const isInvalidForm = !!emailOrPhoneError;
   const isLoading = auth.status === RequestStatus.LOADING;
 
   return (
     <AuthCard>
-      <p className="m-t-3 h4-size">Sign in</p>
+      <p className="m-t-3 h4-size">Forgot password</p>
       <form noValidate onSubmit={handleSubmit}>
         <dl className="form-group m-t-1 m-b-2">
+          <dt className="m-b-1">
+            <label htmlFor="password-reset-email-input">
+              Enter your user account's verified email address or phone and we
+              will send you a password reset link.
+            </label>
+          </dt>
           <dd>
             <input
+              id="password-reset-email-input"
               className={`block ${
                 emailOrPhoneError
                   ? "invalid"
@@ -125,24 +108,10 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
             {emailOrPhoneError}
           </dd>
         </dl>
-        <dl className="form-group m-b-2">
-          <dd>
-            <input
-              className={`block ${
-                passwordError ? "invalid" : !isEmpty(password) ? "valid" : ""
-              }`}
-              type="password"
-              onChange={handlePasswordChange}
-              placeholder="Password"
-              disabled={isLoading}
-            />
-          </dd>
-          <dd aria-live="assertive" className="error">
-            {passwordError}
-          </dd>
-        </dl>
         {auth.error ? (
-          <p className="center text-danger">{auth.error?.message}</p>
+          <p aria-live="assertive" className="center text-danger">
+            {auth.error?.message}
+          </p>
         ) : (
           ""
         )}
@@ -154,35 +123,17 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
           ""
         )}
         {auth.status === RequestStatus.SUCCEEDED ? (
-          <p aria-live="assertive" className="center">
-            Your submission has been sent.
-          </p>
+          <p className="center">Your submission has been sent.</p>
         ) : (
           ""
         )}
-        <div className="container fluid transparent no-border no-padding">
-          <div className="f-50">
-            <div className="m-b-2">
-              <Link className="primary" to="/password-reset">
-                Forgot Password?
-              </Link>
-            </div>
-            <div>
-              <Link className="primary" to="/join">
-                Create an account
-              </Link>
-            </div>
-          </div>
-          <div className="f-50">
-            <button
-              type="submit"
-              disabled={isInvalidForm || isLoading}
-              className="primary float-right"
-            >
-              Sign in
-            </button>
-          </div>
-        </div>
+        <button
+          type="submit"
+          disabled={isInvalidForm || isLoading}
+          className="primary block"
+        >
+          Send
+        </button>
       </form>
     </AuthCard>
   );
@@ -192,5 +143,7 @@ function SignIn({ auth, sendMockRequest, resetState }: SignInPropTypes) {
 export default connect(({ auth }) => ({ auth }), {
   sendMockRequest,
   resetState,
+})(
   // @ts-ignore
-})(SignIn);
+  PasswordReset
+);

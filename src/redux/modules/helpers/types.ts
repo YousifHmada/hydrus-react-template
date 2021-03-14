@@ -1,4 +1,4 @@
-import { RootState } from "..";
+import store, { RootState } from "../../store";
 
 export interface IReactParentPropTypes {
   children?: React.ReactNode;
@@ -24,8 +24,6 @@ export type Action = {
   payload?: any;
 };
 
-export type Thunk = (dispatch: Dispatch) => {};
-
-export type Dispatch = (action: Action | Thunk) => {};
+export type Dispatch = typeof store.dispatch;
 
 export type State = RootState;
