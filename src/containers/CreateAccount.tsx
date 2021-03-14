@@ -45,7 +45,7 @@ function CreateAccount({
   }, []);
 
   function runConfirmPasswordValidations() {
-    if (confirmPassword !== password) {
+    if (confirmPassword !== password || isEmpty(confirmPassword)) {
       setConfirmPasswordError("Those passwords didn’t match. Try again.");
       return false;
     } else {
