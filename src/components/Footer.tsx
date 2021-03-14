@@ -15,7 +15,7 @@ function Footer() {
     );
   }
   return (
-    <div id="footer" className="card transparent m-t--1">
+    <div className="card transparent footer m-t--1">
       <button type="button" onClick={toggleTheme} className="link toggle-theme">
         <FiSettings size="20px" />
       </button>
@@ -27,7 +27,9 @@ function Footer() {
         <option value="Korean">Korean</option>
         <option value="Arabic">Arabic</option>
       </select>
-      <a href="https://www.kidsloop.net/contact/">Help</a>
+      <a className="m-l-auto" href="https://www.kidsloop.net/contact/">
+        Help
+      </a>
       <a href="https://www.kidsloop.net/policies/privacy-notice/">Privacy</a>
       <a href="https://www.kidsloop.net/policies/terms/">Terms</a>
     </div>

@@ -1,21 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.scss";
 import Widgets from "./scss/Widgets";
-import Home from "./containers/Home";
+import SignIn from "./containers/SignIn";
 import Footer from "./components/Footer";
+import { useDetectKeyboardUser } from "./hooks/keyboardUser";
 
 function App() {
-  function handleKeyup(e: KeyboardEvent) {
-    if (e.key === "Tab") {
-      document.documentElement.setAttribute("keyboard-user", "true");
-    }
-  }
-  useEffect(() => {
-    document.addEventListener("keyup", handleKeyup);
-    return () => {
-      document.removeEventListener("keyup", handleKeyup);
-    };
-  }, []);
+  useDetectKeyboardUser();
   return (
     <div className="App">
       <Router>
@@ -26,13 +18,13 @@ function App() {
           <Route path="/">
             <Switch>
               <Route path="/" exact>
-                <Home />
+                <SignIn />
               </Route>
               <Route path="/forgot-password">
-                <Home />
+                <SignIn />
               </Route>
               <Route path="/create-account">
-                <Home />
+                <SignIn />
               </Route>
             </Switch>
             <Footer />

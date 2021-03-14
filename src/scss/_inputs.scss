@@ -32,18 +32,22 @@ select {
   appearance: auto;
   -webkit-rtl-ordering: logical;
   cursor: text;
+  width: 100%;
+  max-width: $input_max_width;
   margin: 0;
   padding: $gaps;
-  border: $s2_gap solid transparent;
+  border: $s3_gap solid transparent;
   border-radius: $border_radius;
   font-size: var(--p-size);
   line-height: var(--h-size);
   font-weight: $p_font_weight;
   outline: none;
-  background-color: $white;
+  background-color: $gray_color_50;
   color: $gray_color_900;
   @include placeholder($gray_color_700);
   border-color: $gray_color_200;
+  background-repeat: no-repeat;
+  background-position: calc(100% - #{$gap}) center; 
   &.lg {
     font-size: var(--h5-size);
   }
@@ -51,22 +55,20 @@ select {
     font-size: var(--small-size);
   }
   &.valid {
-    @include placeholder($success_color_700);
-    border-color: $success_color_600;
+    background-image: url("./helpers/success.png");
   }
   &.invalid {
-    @include placeholder($danger_color_700);
-    border-color: $danger_color_600;
+    background-image: url("./helpers/error.png");
+    border-color: $danger_color;
   }
   &:focus {
+    background-color: $white;
     @include placeholder($gray_color_700);
     color: $gray_color_700;
-    border-color: $gray_color_800;
-    &.valid {
-      border-color: $success_color_800;
-    }
+    border-color: $primary_color_600;
+    box-shadow: $btn_box_shadow;
     &.invalid {
-      border-color: $danger_color_800;
+      border-color: $danger_color;
     }
   }
   &:disabled {
@@ -78,17 +80,12 @@ select {
     color: $gray_color;
     background-color: $gray_color_900;
     border-color: $gray_color_800;
-    &.valid {
-      border-color: $success_color_800;
-    }
     &.invalid {
-      border-color: $danger_color_800;
+      border-color: $danger_color;
     }
     &:focus {
+      box-shadow: $btn_box_shadow_dark;
       border-color: $gray_color_700;
-      &.valid {
-        border-color: $success_color_700;
-      }
       &.invalid {
         border-color: $danger_color_700;
       }
@@ -97,10 +94,26 @@ select {
 }
 
 select {
+  max-width: $select_max_width;
   -moz-appearance: none;
   border-top: none;
   border-right: none;
   border-left: none;
   border-radius: 0;
   cursor: pointer;
+}
+
+.form-group {
+  margin: 0;
+  > * {
+    margin: 0;
+  }
+  .success {
+    margin-top: $s2_gap;
+    color: $success_color_700;
+  }
+  .error {
+    margin-top: $s2_gap;
+    color: $danger_color_700;
+  }
 }

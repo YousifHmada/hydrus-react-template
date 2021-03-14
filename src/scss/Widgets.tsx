@@ -187,8 +187,18 @@ function Layout() {
       <section id="inputs" className="card m-t-5">
         <input type="text" placeholder="Email or Phone" />
         <input type="text" placeholder="Disabled..." disabled />
-        <input type="text" className="valid" placeholder="Valid..." />
-        <input type="text" className="invalid" placeholder="Invalid..." />
+        <dl className="form-group">
+          <dt>
+            <input type="text" className="valid" placeholder="Valid..." />
+          </dt>
+          <dd className="success">Great, it works</dd>
+        </dl>
+        <dl className="form-group">
+          <dt>
+            <input type="text" className="invalid" placeholder="Invalid..." />
+          </dt>
+          <dd className="error">An error occured</dd>
+        </dl>
         <input type="text" className="block" placeholder="Block..." />
         <input type="text" className="lg" placeholder="Large..." required />
         <input type="text" className="sm" placeholder="Small..." required />
